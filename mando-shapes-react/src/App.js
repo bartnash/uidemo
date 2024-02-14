@@ -1,26 +1,40 @@
 import './App.css';
+import {Carousel} from 'react-responsive-carousel'
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
 
-function Chord({ chord } ){
+
+function Chord({ index, chord } ){
   return (
-    <div className="chord-shape"> 
-      <div className="chord-name">{chord.name}</div>
-      <img className="chord-image" src={chord.image} alt={chord.name}/>
+    <div key={index} > 
+      <img src={chord.image} alt={chord.name}/>
+      <p className="legend">{chord.name}</p>
     </div>
   )
 }
 
 function Pattern({ pattern }){
   const shapes = [];
-  pattern.shapes.forEach((shape) => {
+  pattern.shapes.forEach((shape, index) => {
     shapes.push(
-      <Chord chord={shape}/>
+      <Chord index={index} chord={shape}/>
     );
     
   });
   return (
     <div className="pattern-wrap">
       <div className="pattern-name"> {pattern.name}</div>
-      <div className="shapes-wrap"> {shapes} </div>
+      <div className="shapes-wrap">
+      <Carousel
+        showThumbs="true"
+        infiniteLoop="true"
+        centerMode="true"
+        centerSlidePercentage="33"
+        thumbWidth="5"
+        
+      >
+          {shapes} 
+        </Carousel>
+      </div>
     </div>
   )
 }
@@ -36,7 +50,7 @@ function Patterns({ patterns }){
 
   return (
     <div className="patterns-wrap">
-      {patternList}
+        {patternList}
     </div>
   );
 
@@ -50,7 +64,7 @@ const PATTERNS = [
         name: "I"
       },
       { image: "patterns/G/4.png",
-        name: "V" 
+        name: "IV" 
       }
     ]
   }
@@ -66,6 +80,7 @@ function App() {
           Chord progression patterns for mandolin.
         </p>
       </header>
+
       <Patterns patterns={PATTERNS}/>
     </div>
   );
