@@ -58,13 +58,51 @@ function Patterns({ patterns }){
 
 
 const PATTERNS = [
-  { name: "Chop G",
+  { name: "Little G",
     shapes: [ 
       { image:"patterns/G/1.png",
         name: "I"
       },
       { image: "patterns/G/4.png",
         name: "IV" 
+      }
+    ]
+  },
+  { name: "G Chop",
+    shapes: [ 
+      { image:"patterns/g-chop/gChopI.svg",
+        name: "I"
+      },
+      { image:"patterns/g-chop/gChop-ii.svg",
+        name: "ii"
+      },
+      { image:"patterns/g-chop/gChopIV.svg",
+        name: "IV"
+      },
+      { image:"patterns/g-chop/gChopV.svg",
+        name: "V"
+      },
+      { image:"patterns/g-chop/gChop-vi.svg",
+        name: "vi"
+      }
+    ]
+  }
+  ,{ name: "D Chop",
+    shapes: [ 
+      { image:"patterns/d-chop/dChop1.svg",
+        name: "I"
+      },
+      { image:"patterns/d-chop/dChop-ii.svg",
+        name: "ii"
+      },
+      { image:"patterns/d-chop/dChop4.svg",
+        name: "IV"
+      },
+      { image:"patterns/d-chop/dChop5.svg",
+        name: "V"
+      },
+      { image:"patterns/d-chop/dChop-vi.svg",
+        name: "vi"
       }
     ]
   }
