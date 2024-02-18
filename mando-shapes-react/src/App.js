@@ -1,14 +1,10 @@
 import './App.css';
-import {Carousel} from 'react-responsive-carousel'
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
-
+import { Button } from "@material-tailwind/react";
+import { Carousel } from "@material-tailwind/react";
 
 function Chord({ index, chord } ){
   return (
-    <div key={index} > 
-      <img src={chord.image} alt={chord.name}/>
-      <p className="legend">{chord.name}</p>
-    </div>
+      <img src={chord.image} alt={chord.name} className="h-full w-full object-cover"/>
   )
 }
 
@@ -23,15 +19,8 @@ function Pattern({ pattern }){
   return (
     <div className="pattern-wrap">
       <div className="pattern-name"> {pattern.name}</div>
-      <div className="shapes-wrap">
-      <Carousel
-        showThumbs="true"
-        infiniteLoop="true"
-        centerMode="true"
-        centerSlidePercentage="33"
-        thumbWidth="5"
-        
-      >
+      <div className="md:container md:mx-auto">
+        <Carousel className="rounded-xl">
           {shapes} 
         </Carousel>
       </div>
@@ -119,6 +108,7 @@ function App() {
         </p>
       </header>
 
+      <Button> TW Button</Button>
       <Patterns patterns={PATTERNS}/>
     </div>
   );
