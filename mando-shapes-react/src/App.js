@@ -1,13 +1,9 @@
 import './App.css';
-import {Carousel} from 'react-responsive-carousel'
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
-
 
 function Chord({ index, chord } ){
   return (
-    <div key={index} > 
-      <img src={chord.image} alt={chord.name}/>
-      <p className="legend">{chord.name}</p>
+    <div className="carousel-item w-1/2">
+      <img src={chord.image} alt={chord.name} className="w-full"/>
     </div>
   )
 }
@@ -21,19 +17,12 @@ function Pattern({ pattern }){
     
   });
   return (
-    <div className="pattern-wrap">
-      <div className="pattern-name"> {pattern.name}</div>
-      <div className="shapes-wrap">
-      <Carousel
-        showThumbs="true"
-        infiniteLoop="true"
-        centerMode="true"
-        centerSlidePercentage="33"
-        thumbWidth="5"
-        
-      >
+    <div>
+      <input type="radio" name="pattern_tabs" arial-label={pattern.name} role="tab" className="tab" checked />
+      <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+        <div className="carousel rounded-box ">
           {shapes} 
-        </Carousel>
+        </div>
       </div>
     </div>
   )
@@ -49,7 +38,7 @@ function Patterns({ patterns }){
   });
 
   return (
-    <div className="patterns-wrap">
+    <div role="tablist" className="tabs tabs-lifted">
         {patternList}
     </div>
   );
@@ -119,6 +108,7 @@ function App() {
         </p>
       </header>
 
+      <button className='btn'> TW Button</button>
       <Patterns patterns={PATTERNS}/>
     </div>
   );
