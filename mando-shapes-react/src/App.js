@@ -1,12 +1,11 @@
 import './App.css';
-import {Carousel} from 'react-responsive-carousel'
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Tabs } from 'flowbite-react';
 
 
 function Chord({ index, chord } ){
   return (
-    <div key={index} > 
-      <img src={chord.image} alt={chord.name}/>
+    <div key={index} className='h-1/2 min-w-40 -space-x-2 space-y-2 justify-items-center content-center bg-neutral-50 snap-center box-content ' > 
+      <img src={chord.image} alt={chord.name} className='h-1/2 self-center relative w-full box-border space-x-4 space-y-2 bg-white'/>
       <p className="legend">{chord.name}</p>
     </div>
   )
@@ -16,42 +15,47 @@ function Pattern({ pattern }){
   const shapes = [];
   pattern.shapes.forEach((shape, index) => {
     shapes.push(
-      <Chord index={index} chord={shape}/>
+      <Chord index={index} chord={shape} className=' bg-neutral-50 snap-center'/>
     );
     
   });
   return (
-    <div className="pattern-wrap">
-      <div className="pattern-name"> {pattern.name}</div>
-      <div className="shapes-wrap">
-      <Carousel
-        showThumbs="true"
-        infiniteLoop="true"
-        centerMode="true"
-        centerSlidePercentage="33"
-        thumbWidth="5"
-        
-      >
+    <div className="h-full">
+      <div className="relative h-1/6"> {pattern.name}</div>
+      <div className="relative h-1/2" >
+        <div className="snap-x snap-mandatory overflow-x-auto items-center justify-center relative w-full gap-6 bg-neutral-50 flex "
+        >
+          <div className='w-1/3 space-x-2 space-y-2 bg-neutral-50 snap-center h-1/2 box-content ' > 
+          </div>
           {shapes} 
-        </Carousel>
+          <div className='w-1/3 space-x-2 space-y-2 bg-neutral-50 snap-center h-1/2 box-content ' > 
+          </div>
+        </div>
       </div>
     </div>
   )
 }
+        //<div className="snap-x snap-mandatory overflow-x-auto items-center justify-center h-full relative w-full gap-6 auto object-center bg-neutral-50 flex "
+
+        //<Carousel className='snap-mandatory snap-y'>
+         // {shapes} 
+        //</Carousel>
 
 function Patterns({ patterns }){
 
   const patternList = [];
   patterns.forEach((pat) => {
     patternList.push(
-      <Pattern pattern = {pat}/>
+      <Tabs.Item className='h-full' title={pat.name} >
+      <Pattern pattern = {pat} />
+      </Tabs.Item>
     );
   });
 
   return (
-    <div className="patterns-wrap">
+    <Tabs aria-label="Chord Patterns" style="default">
         {patternList}
-    </div>
+    </Tabs>
   );
 
 }
@@ -111,15 +115,19 @@ const PATTERNS = [
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App snap-y snap-mandatory overflow-y-scroll h-screen flex-grow z-0 ">
+
+      <div className="App-header snap-always snap-center">
         <img src="logo_white.png" className="App-logo" alt="Mandolin Shapes" />
         <p>
           Chord progression patterns for mandolin.
         </p>
-      </header>
+      </div>
+      <div className="snap-always snap-start relative h-full min-w-full ">
+
 
       <Patterns patterns={PATTERNS}/>
+      </div>
     </div>
   );
 }

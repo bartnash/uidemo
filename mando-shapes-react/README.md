@@ -29,6 +29,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Tailwind
+This version of the app is using Tailwind CSS and NextUI.
+
+If things aren't working correctly, doublecheck [Tailwind installation.](https://tailwindcss.com/docs/installation)
+
+The tailwindcss cli compiles CSS and should hopefully render only what's needed?
+'''bash
+npx tailwindcss -i ./src/index.css -o ./public/output.css --watch
+'''
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
