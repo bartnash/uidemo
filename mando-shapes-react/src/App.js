@@ -4,8 +4,8 @@ import { Tabs } from 'flowbite-react';
 
 function Chord({ index, chord } ){
   return (
-    <div key={index} className='h-1/2 min-w-40 -space-x-2 space-y-2 justify-items-center content-center bg-neutral-50 snap-center box-content ' > 
-      <img src={chord.image} alt={chord.name} className='h-1/2 self-center relative w-full box-border space-x-4 space-y-2 bg-white'/>
+    <div key={index} className='h-1/2 min-w-40 -space-x-2 space-y-2 justify-items-center content-center bg-white z-40 rounded-md shadow snap-center box-content ' > 
+      <img src={chord.image} alt={chord.name} className='h-1/2 self-center w-full box-border space-x-4 space-y-2 bg-white'/>
       <p className="legend">{chord.name}</p>
     </div>
   )
@@ -23,12 +23,12 @@ function Pattern({ pattern }){
     <div className="h-full">
       <div className="relative h-1/6"> {pattern.name}</div>
       <div className="relative h-1/2" >
-        <div className="snap-x snap-mandatory overflow-x-auto items-center justify-center relative w-full gap-6 bg-neutral-50 flex "
+        <div className="snap-x snap-mandatory overflow-x-scroll items-center justify-center relative w-full gap-6 bg-neutral-100 flex "
         >
-          <div className='w-1/3 space-x-2 space-y-2 bg-neutral-50 snap-center h-1/2 box-content ' > 
+          <div className='w-1/2 space-x-2 space-y-2 bg-neutral-50 snap-center h-1/2 box-content ' > 
           </div>
           {shapes} 
-          <div className='w-1/3 space-x-2 space-y-2 bg-neutral-50 snap-center h-1/2 box-content ' > 
+          <div className='w-1/2 space-x-2 space-y-2 bg-neutral-50 snap-center h-1/2 box-content ' > 
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@ function App() {
           Chord progression patterns for mandolin.
         </p>
       </div>
-      <div className="snap-always snap-start relative h-full min-w-full ">
+      <div className="snap-always snap-start relative h-full min-w-full bg-neutral-100 ">
 
 
       <Patterns patterns={PATTERNS}/>
