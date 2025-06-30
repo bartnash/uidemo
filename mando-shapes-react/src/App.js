@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import { Tabs } from 'flowbite-react';
 
@@ -53,7 +54,7 @@ function Patterns({ patterns }){
   });
 
   return (
-    <Tabs aria-label="Chord Patterns" style="default">
+    <Tabs aria-label="Chord Patterns" theme="default">
         {patternList}
     </Tabs>
   );
